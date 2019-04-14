@@ -28,6 +28,9 @@ node('docker-slave-general') {
     
     if ( dockerOutput == 'GO AWAY!' ) {
         currentBuild.result = 'SUCCESS'
+        sh 'docker push shlomis92/testing-jenkins:latest'
+   
+      
     } else {
         currentBuild.result = 'FAILURE'
         sh "echo Webserver returned ${dockerOutput}"
