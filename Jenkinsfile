@@ -28,7 +28,8 @@ node('docker-slave-general') {
     
     if ( dockerOutput == 'GO AWAY!' ) {
         currentBuild.result = 'SUCCESS'
-        sh 'docker push shlomis92/testing-jenkins:latest'
+        withDockerRegistry([ credentialsId: "6544de7e-17a4-4576-9b9b-e86bc1e4f903", url: "" ]) {
+          sh 'docker push shlomis92/testing-jenkins:latest' }
    
       
     } else {
