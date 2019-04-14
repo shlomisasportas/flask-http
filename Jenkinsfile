@@ -29,7 +29,7 @@ node('docker-slave-general') {
     if ( dockerOutput == 'GO AWAY!' ) {
         currentBuild.result = 'SUCCESS'
       sh "docker push shlomis92/${DockerImage}" }
-   
+  }
       
     } else {
         currentBuild.result = 'FAILURE'
